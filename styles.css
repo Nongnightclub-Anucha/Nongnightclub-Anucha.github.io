@@ -1,0 +1,156 @@
+/* รีเซ็ตค่าเริ่มต้น */
+body {
+    font-family: "Prompt", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f3ef; /* สีครีมอ่อน */
+    color: #5a4636; /* น้ำตาลเข้ม */
+    text-align: center;
+}
+
+/* ส่วนหัวของเว็บ */
+header {
+    background-color: #d7c4b7; /* โทนมินิมอลน้ำตาลอ่อน */
+    color: #5a4636;
+    padding: 15px;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* ปุ่มเปิด Sidebar */
+#toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #5a4636; /* ปุ่มสีน้ำตาลเข้ม */
+    color: #f5f3ef;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#toggle-btn:hover {
+    background-color: #4a3b2c;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fdfaf6; /* สีขาวครีม */
+    color: #5a4636;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    left: -260px;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* เมนูหลัก */
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-title {
+    padding: 12px;
+    cursor: pointer;
+    background-color: #e8dfd6; /* โทนสีกลาง */
+    border-radius: 5px;
+    margin: 8px 0;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.menu-title:hover {
+    background-color: #d7c4b7;
+}
+
+/* เมนูย่อย */
+.submenu {
+    list-style: none;
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.submenu li {
+    padding: 8px 0;
+    color: #7a6653;
+    cursor: pointer;
+}
+
+.submenu li:hover {
+    color: #5a4636;
+}
+
+/* เปิดเมนูย่อย */
+.submenu.open {
+    max-height: 200px;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-display {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 15px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: scale(1.05);
+}
+
+.menu-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.menu-info h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.menu-info p {
+    font-size: 0.9em;
+    color: #666;
+}
