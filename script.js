@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (menuName === "เมนูตำ") {
             menuHTML += `
                 <div class="menu-card">
-                    <img src="images/ตำหมูยอด.JPG" alt="ส้มตำไทย">
+                    <img src="ตำหมูยอด.JPG" alt="ส้มตำไทย">
                     <div class="menu-info">
                         <h3>ส้มตำไทย</h3>
                         <p>ส้มตำไทยรสเด็ด เผ็ด เปรี้ยว หวาน กำลังดี</p>
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
                 <div class="menu-card">
-                    <img src="images/ตำปูนา.JPG"" alt="ส้มตำปู">
+                    <img src="ตำปูนา.JPG"" alt="ส้มตำปู">
                     <div class="menu-info">
                         <h3>ส้มตำปู</h3>
                         <p>ส้มตำรสแซ่บพร้อมปูดองสด</p>
