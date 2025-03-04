@@ -1,118 +1,283 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // อ้างอิงปุ่มและ element ที่เกี่ยวข้อง
-    const toggleBtn = document.getElementById("toggle-btn");
-    const homeBtn = document.getElementById("home-btn");
-    const sidebar = document.querySelector(".sidebar");
-    const menuDisplay = document.querySelector(".menu-display");
-    const menuTitles = document.querySelectorAll(".menu-title");
-    const menuItems = document.querySelectorAll(".submenu li");
-  
-    // ซ่อนส่วนแสดงเมนูอาหาร (menu-display) เมื่อโหลดหน้าแรก
-    if (menuDisplay) {
-      menuDisplay.style.display = "none";
-    }
-  
-    // เมื่อคลิกปุ่ม "☰ เมนู" ให้สลับแสดง/ซ่อน Sidebar
-    toggleBtn.addEventListener("click", function () {
-      sidebar.classList.toggle("active");
-    });
-  
-    // เมื่อคลิกปุ่ม "🏠 หน้าแรก" ให้ซ่อน Sidebar และส่วนแสดงเมนูอาหาร
-    homeBtn.addEventListener("click", function () {
-      sidebar.classList.remove("active");
-      if (menuDisplay) {
-        menuDisplay.style.display = "none";
-      }
-      // รีเซ็ตสถานะของ submenu (ซ่อนทั้งหมด)
-      const submenus = document.querySelectorAll(".sidebar .submenu");
-      submenus.forEach(submenu => {
-        submenu.classList.remove("active");
-      });
-    });
-  
-    // เมื่อคลิกที่เมนูหลักใน Sidebar ให้สลับแสดง/ซ่อนเมนูย่อย
-    menuTitles.forEach(function (title) {
-      title.addEventListener("click", function () {
-        const submenu = this.nextElementSibling;
-        if (submenu) {
-          submenu.classList.toggle("active");
-        }
-      });
-    });
-  
-    // เมื่อคลิกที่รายการใน submenu (เช่น "เมนูตำ", "เมนูยำ", "เมนูต้ม")
-    menuItems.forEach(function (item) {
-      item.addEventListener("click", function () {
-        const menuName = this.textContent.trim();
-        loadMenu(menuName);
-      });
-    });
-  
-    // ฟังก์ชันโหลดเนื้อหาเมนูตามชื่อที่เลือก
-    function loadMenu(menuName) {
-      let menuHTML = `<h2>${menuName}</h2><div class="menu-list">`;
-      if (menuName === "เมนูตำ") {
-        menuHTML += `
-          <div class="menu-card">
-            <img src="ตำหมูยอด.JPG" alt="ส้มตำไทย">
-            <div class="menu-info">
-              <h3>ส้มตำไทย</h3>
-              <p>ส้มตำไทยรสเด็ด เผ็ด เปรี้ยว หวาน กำลังดี</p>
-              <p><strong>ราคา:</strong> 50 บาท</p>
-            </div>
-          </div>
-          <div class="menu-card">
-            <img src="ตำปูนา.JPG" alt="ส้มตำปู">
-            <div class="menu-info">
-              <h3>ส้มตำปู</h3>
-              <p>ส้มตำรสแซ่บพร้อมปูดองสด</p>
-              <p><strong>ราคา:</strong> 60 บาท</p>
-            </div>
-          </div>
-        `;
-      } else if (menuName === "เมนูยำ") {
-        menuHTML += `
-          <div class="menu-card">
-            <img src="yum_seafood.jpg" alt="ยำทะเล">
-            <div class="menu-info">
-              <h3>ยำทะเล</h3>
-              <p>ยำรวมทะเลรสแซ่บ เผ็ด เปรี้ยว กลมกล่อม</p>
-              <p><strong>ราคา:</strong> 80 บาท</p>
-            </div>
-          </div>
-          <div class="menu-card">
-            <img src="yum_wun_sen.jpg" alt="ยำวุ้นเส้น">
-            <div class="menu-info">
-              <h3>ยำวุ้นเส้น</h3>
-              <p>ยำวุ้นเส้นหมูสับ กุ้งสด ครบรสชาติ</p>
-              <p><strong>ราคา:</strong> 70 บาท</p>
-            </div>
-          </div>
-        `;
-      } else if (menuName === "เมนูต้ม") {
-        menuHTML += `
-          <div class="menu-card">
-            <img src="tom_yum.jpg" alt="ต้มยำกุ้ง">
-            <div class="menu-info">
-              <h3>ต้มยำกุ้ง</h3>
-              <p>ต้มยำกุ้งน้ำข้น หอมมัน กุ้งสดเนื้อแน่น</p>
-              <p><strong>ราคา:</strong> 120 บาท</p>
-            </div>
-          </div>
-          <div class="menu-card">
-            <img src="tom_kha_gai.jpg" alt="ต้มข่าไก่">
-            <div class="menu-info">
-              <h3>ต้มข่าไก่</h3>
-              <p>ต้มข่าไก่ หอมกะทิ รสชาติกลมกล่อม</p>
-              <p><strong>ราคา:</strong> 100 บาท</p>
-            </div>
-          </div>
-        `;
-      }
-      menuHTML += `</div>`;
-      // โหลดเนื้อหาลงในส่วนแสดงเมนูและแสดงออกมา
-      menuDisplay.innerHTML = menuHTML;
-      menuDisplay.style.display = "block";
-    }
-  });
-  
+/* Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* พื้นหลังดำเข้ม */
+  color: #E0E0E0; /* ข้อความสีเทาอ่อน */
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.9);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px); /* ทำให้พื้นหลังดูฟุ้งขึ้น */
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+.header-content h1 {
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #E0E0E0;
+}
+.menu-bar ul {
+  list-style: none;
+  display: flex;
+}
+.menu-bar li {
+  margin-left: 20px;
+}
+.menu-bar button {
+  background: transparent;
+  border: 2px solid #E0E0E0;
+  color: #E0E0E0;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.menu-bar button:hover {
+  background: #E0E0E0;
+  color: #121212;
+}
+
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* โปร่งใส */
+  color: #E0E0E0;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  transition: left 0.4s ease;
+  z-index: 1100;
+  backdrop-filter: blur(10px); /* ทำให้พื้นหลังดูฟุ้งขึ้น */
+}
+.sidebar.active {
+  left: 0;
+}
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+.sidebar .menu {
+  list-style: none;
+}
+.sidebar .menu li {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.sidebar .menu-title {
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 0;
+  border-bottom: 1px solid #333;
+  transition: color 0.3s;
+}
+.sidebar .menu-title:hover {
+  color: #A8A8A8;
+}
+.sidebar .submenu {
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 10px;
+  display: none; /* ซ่อน submenu โดยเริ่มต้น */
+}
+.sidebar .submenu.active {
+  display: block;
+}
+.sidebar .submenu li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.sidebar .submenu li:hover {
+  color: #A8A8A8;
+}
+
+/* Menu Display Section */
+.menu-display {
+  margin: 100px auto 50px;
+  padding: 20px;
+  max-width: 1200px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+}
+.menu-display h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #E0E0E0;
+}
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.menu-card {
+  background: #1E1E1E;
+  width: calc(33% - 30px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+.menu-card:hover {
+  transform: translateY(-5px);
+}
+.menu-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.menu-info {
+  padding: 15px;
+  text-align: left;
+}
+.menu-info h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #E0E0E0;
+}
+.menu-info p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.menu-info p strong {
+  color: #A8A8A8;
+}
+
+/* Contact Section */
+.contact-info {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.7); /* สีดำเข้มแบบโปร่งแสง */
+  backdrop-filter: blur(10px);
+  color: #E0E0E0;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+.contact-info h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #E0E0E0;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.social-links a {
+  color: #E0E0E0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #E0E0E0;
+  padding: 10px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+.social-links a:hover {
+  background: #E0E0E0;
+  color: #121212;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Pricing Note */
+.pricing-note {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  color: #E0E0E0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .menu-card {
+    width: calc(50% - 30px);
+  }
+}
+@media (max-width: 768px) {
+  .menu-card {
+    width: 100%;
+  }
+  .header-content {
+    flex-direction: column;
+  }
+  .menu-bar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .menu-display {
+    margin-top: 120px;
+    padding: 10px;
+  }
+  .menu-card {
+    flex-direction: column; /* ทำให้แต่ละเมนูเรียงกันเป็นแนวตั้ง */
+    text-align: center;
+  }
+  .menu-card img {
+    width: 100%;
+    height: auto;
+  }
+  .menu-info {
+    padding: 10px;
+  }
+  h2 {
+    font-size: 20px; /* ลดขนาดตัวอักษรหัวข้อ */
+  }
+}
