@@ -7,8 +7,8 @@
 
 body, html {
   font-family: 'Arial', sans-serif;
-  background-color: #121212; /* พื้นหลังดำเข้ม */
-  color: #E0E0E0; /* ข้อความสีเทาอ่อน */
+  background-color: #121212; /* Dark background */
+  color: #E0E0E0; /* Light grey text */
   text-align: center;
   line-height: 1.6;
 }
@@ -22,41 +22,40 @@ header {
   background: rgba(18, 18, 18, 0.9);
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px); /* ทำให้พื้นหลังดูฟุ้งขึ้น */
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 15px 30px;
-  flex-wrap: wrap; /* เพิ่ม flex-wrap เพื่อให้ content สามารถยุบลงไปได้เมื่อจอเล็ก */
+  flex-direction: column;
+  padding: 15px 20px;
 }
 
 .header-content h1 {
-  font-size: 24px;
+  font-size: 20px; /* Adjusted for mobile */
   letter-spacing: 1px;
   color: #E0E0E0;
-  flex: 1; /* ให้ h1 ใช้พื้นที่ที่เหลือ */
-  text-align: center; /* จัดตำแหน่งให้ตรงกลาง */
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .menu-bar ul {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  flex-direction: column;
+  gap: 10px; /* Space between menu items */
 }
 
 .menu-bar li {
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 .menu-bar button {
   background: transparent;
   border: 2px solid #E0E0E0;
   color: #E0E0E0;
-  padding: 8px 16px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
@@ -92,13 +91,13 @@ header {
   left: -260px;
   width: 260px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2); /* โปร่งใส */
+  background: rgba(255, 255, 255, 0.2);
   color: #E0E0E0;
   padding: 30px 20px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   transition: left 0.4s ease;
   z-index: 1100;
-  backdrop-filter: blur(10px); /* ทำให้พื้นหลังดูฟุ้งขึ้น */
+  backdrop-filter: blur(10px);
 }
 
 .sidebar.active {
@@ -138,7 +137,7 @@ header {
   list-style: none;
   padding-left: 20px;
   margin-top: 10px;
-  display: none; /* ซ่อน submenu โดยเริ่มต้น */
+  display: none;
 }
 
 .sidebar .submenu.active {
@@ -183,7 +182,7 @@ header {
 
 .menu-card {
   background: #1E1E1E;
-  width: calc(33% - 30px);
+  width: 100%;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -196,7 +195,7 @@ header {
 
 .menu-card img {
   width: 100%;
-  height: 200px;
+  height: auto;
   object-fit: cover;
 }
 
@@ -228,7 +227,7 @@ header {
   transform: translateX(-50%);
   width: 90%;
   max-width: 800px;
-  background: rgba(0, 0, 0, 0.7); /* สีดำเข้มแบบโปร่งแสง */
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   color: #E0E0E0;
   padding: 20px 30px;
@@ -281,57 +280,34 @@ header {
   text-align: center;
 }
 
-/* Responsive Styles */
-@media (max-width: 680px) {
+/* Responsive Styles (Larger screens) */
+@media (min-width: 681px) {
   .menu-card {
-    width: 100%;
+    width: calc(33% - 30px);
   }
 
   .header-content {
-    flex-direction: column;
-    align-items: flex-start; /* จัดตำแหน่งให้กลาง */
-    padding: 15px 20px; /* ปรับ padding ให้พอดีกับหน้าจอเล็ก */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .header-content h1 {
-    font-size: 20px; /* ลดขนาดตัวอักษรของชื่อร้าน */
+    font-size: 24px;
   }
 
   .menu-bar ul {
-    flex-direction: column; /* ให้เมนูเป็นแนวตั้ง */
-    margin-top: 10px;
-  }
-
-  .menu-bar li {
-    margin-left: 0;
-    margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
-  }
-
-  .menu-bar button {
-    width: 100%; /* ให้ปุ่มกว้างเต็มความกว้างของหน้าจอ */
-    padding: 10px; /* เพิ่ม padding ให้ปุ่มใหญ่ขึ้น */
-  }
-
-  .menu-display {
-    margin-top: 120px;
-    padding: 10px;
-  }
-
-  .menu-card {
-    flex-direction: column; /* ทำให้แต่ละเมนูเรียงกันเป็นแนวตั้ง */
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
   }
 
   .menu-card img {
     width: 100%;
-    height: auto;
+    height: 200px;
   }
 
   .menu-info {
-    padding: 10px;
-  }
-
-  h2 {
-    font-size: 20px; /* ลดขนาดตัวอักษรหัวข้อ */
+    padding: 15px;
   }
 }
