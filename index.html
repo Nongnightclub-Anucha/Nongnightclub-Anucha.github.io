@@ -1,119 +1,141 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onzon Esarn Restaurant</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onzon Esarn Restaurant</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- ส่วนหัวของเว็บไซต์ -->
-    <header>
-        <h1>Onzon Esarn Restaurant</h1>
-        <button id="toggle-btn">☰ เมนู</button>
-    </header>
-
-    <!-- วิดีโอที่แสดงในหน้าหลัก -->
-    <div class="video-background">
-        <video autoplay loop muted>
-            <source src="ONZON2.mp4" type="video/mp4">
-            <p>https://github.com/user-attachments/assets/2651902b-d9de-443f-9601-4eadf1f58bf4</p>
-        </video>
-    </div>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>🍽️ เมนู</h2>
-        <ul class="menu">
-            <li>
-                <div class="menu-title">🍹 BAR MENU</div>
-                <ul class="submenu">
-                    <li>Soft Drinks</li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-title">🍽️ เมนูอาหาร </div>
-                <ul class="submenu">
-                    <li>เมนูตำ</li>
-                    <li>เมนูยำ</li>
-                    <li>เมนูต้ม</li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-title">🍷 WINE LIST</div>
-                <ul class="submenu">
-                    <li>Red Wine</li>
-                    <li>White Wine</li>
-                </ul>
-            </li>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h1>Onzon Esarn Restaurant</h1>
+      <nav class="menu-bar">
+        <ul>
+          <li><button id="toggle-btn">☰ เมนู</button></li>
+          <li><button id="home-btn">🏠 หน้าแรก</button></li>
         </ul>
+      </nav>
     </div>
-
-    <script src="script.js"></script>
-</body>
-
-<!-- ส่วนแสดงเมนูอาหาร -->
-<section class="menu-display">
-    <h2>เมนูอาหาร</h2>
+  </header>
+  
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="videos/ONZON2.mp4" type="video/mp4">
+      <p>https://github.com/user-attachments/assets/2651902b-d9de-443f-9601-4eadf1f58bf4</p>
+    </video>
+  </div>
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>🍽️ เมนู</h2>
+    <ul class="menu">
+      <li>
+        <div class="menu-title">🍹 BAR MENU</div>
+        <ul class="submenu">
+          <li>Soft Drinks</li>
+        </ul>
+      </li>
+      <li>
+        <div class="menu-title">🍽️ เมนูอาหาร</div>
+        <ul class="submenu">
+          <li>เมนูตำ</li>
+          <li>เมนูยำ</li>
+          <li>เมนูต้ม</li>
+        </ul>
+      </li>
+      <li>
+        <div class="menu-title">🍷 WINE LIST</div>
+        <ul class="submenu">
+          <li>Red Wine</li>
+          <li>White Wine</li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  
+  <!-- Menu Display Section -->
+ <section class="menu-display">
+    <h2>เมนูอาหารแนะนำวันนี้</h2>
     <div class="menu-list">
-        <!-- เมนูตำ -->
-        <div class="menu-card">
-            <img src="ตำหมูยอด.JPG" alt="ส้มตำไทย">
-            <div class="menu-info">
-                <h3>ส้มตำไทย</h3>
-                <p>ส้มตำไทยรสเด็ด เผ็ด เปรี้ยว หวาน กำลังดี</p>
-                <p><strong>ราคา:</strong> 50 บาท</p>
-            </div>
+      <!-- ส้มตำไทย -->
+      <div class="menu-card">
+        <img src="ตำหมูยอด.JPG" alt="ส้มตำไทย">
+        <div class="menu-info">
+          <h3>ส้มตำไทย</h3>
+          <p>ส้มตำไทยรสเด็ด เผ็ด เปรี้ยว หวาน กำลังดี</p>
+          <p><strong>ราคา:</strong> 50 บาท</p>
         </div>
-
-        <div class="menu-card">
-            <img src="ตำปูนา.JPG" alt="ส้มตำปู">
-            <div class="menu-info">
-                <h3>ส้มตำปู</h3>
-                <p>ส้มตำรสแซ่บพร้อมปูดองสด</p>
-                <p><strong>ราคา:</strong> 60 บาท</p>
-            </div>
+      </div>
+      
+      <!-- ส้มตำปู -->
+      <div class="menu-card">
+        <img src="ตำปูนา.JPG" alt="ส้มตำปู">
+        <div class="menu-info">
+          <h3>ส้มตำปู</h3>
+          <p>ส้มตำรสแซ่บพร้อมปูดองสด</p>
+          <p><strong>ราคา:</strong> 60 บาท</p>
         </div>
-
-        <!-- เมนูยำ -->
-        <div class="menu-card">
-            <img src="yum_seafood.jpg" alt="ยำทะเล">
-            <div class="menu-info">
-                <h3>ยำทะเล</h3>
-                <p>ยำรวมทะเลรสแซ่บ เผ็ด เปรี้ยว กลมกล่อม</p>
-                <p><strong>ราคา:</strong> 80 บาท</p>
-            </div>
+      </div>
+      
+      <!-- ยำทะเล -->
+      <div class="menu-card">
+        <img src="yum_seafood.jpg" alt="ยำทะเล">
+        <div class="menu-info">
+          <h3>ยำทะเล</h3>
+          <p>ยำรวมทะเลรสแซ่บ เผ็ด เปรี้ยว กลมกล่อม</p>
+          <p><strong>ราคา:</strong> 80 บาท</p>
         </div>
-
-        <div class="menu-card">
-            <img src="yum_wun_sen.jpg" alt="ยำวุ้นเส้น">
-            <div class="menu-info">
-                <h3>ยำวุ้นเส้น</h3>
-                <p>ยำวุ้นเส้นหมูสับ กุ้งสด ครบรสชาติ</p>
-                <p><strong>ราคา:</strong> 70 บาท</p>
-            </div>
+      </div>
+      
+      <!-- ยำวุ้นเส้น -->
+      <div class="menu-card">
+        <img src="yum_wun_sen.jpg" alt="ยำวุ้นเส้น">
+        <div class="menu-info">
+          <h3>ยำวุ้นเส้น</h3>
+          <p>ยำวุ้นเส้นหมูสับ กุ้งสด ครบรสชาติ</p>
+          <p><strong>ราคา:</strong> 70 บาท</p>
         </div>
-
-        <!-- เมนูต้ม -->
-        <div class="menu-card">
-            <img src="tom_yum.jpg" alt="ต้มยำกุ้ง">
-            <div class="menu-info">
-                <h3>ต้มยำกุ้ง</h3>
-                <p>ต้มยำกุ้งน้ำข้น หอมมัน กุ้งสดเนื้อแน่น</p>
-                <p><strong>ราคา:</strong> 120 บาท</p>
-            </div>
+      </div>
+      
+      <!-- ต้มยำกุ้ง -->
+      <div class="menu-card">
+        <img src="tom_yum.jpg" alt="ต้มยำกุ้ง">
+        <div class="menu-info">
+          <h3>ต้มยำกุ้ง</h3>
+          <p>ต้มยำกุ้งน้ำข้น หอมมัน กุ้งสดเนื้อแน่น</p>
+          <p><strong>ราคา:</strong> 120 บาท</p>
         </div>
-
-        <div class="menu-card">
-            <img src="tom_kha_gai.jpg" alt="ต้มข่าไก่">
-            <div class="menu-info">
-                <h3>ต้มข่าไก่</h3>
-                <p>ต้มข่าไก่ หอมกะทิ รสชาติกลมกล่อม</p>
-                <p><strong>ราคา:</strong> 100 บาท</p>
-            </div>
+      </div>
+      
+      <!-- ต้มข่าไก่ -->
+      <div class="menu-card">
+        <img src="tom_kha_gai.jpg" alt="ต้มข่าไก่">
+        <div class="menu-info">
+          <h3>ต้มข่าไก่</h3>
+          <p>ต้มข่าไก่ หอมกะทิ รสชาติกลมกล่อม</p>
+          <p><strong>ราคา:</strong> 100 บาท</p>
         </div>
+      </div>
     </div>
-</section>
-
+  </section>
+  
+  <!-- Contact Information -->
+  <section class="contact-info">
+    <h2>ติดต่อเรา</h2>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61570289709181&ref=ig_profile_ac" target="_blank">📘 Facebook</a>
+      <a href="https://www.instagram.com/onzon.bkk/" target="_blank">📸 Instagram</a>
+      <a href="https://www.tiktok.com/@onzon.bkk?_t=ZS-8uOKe0p2YYk&_r=1" target="_blank">🎵 TikTok</a>
+      <a href="https://www.google.com/maps/place/ONZON.BKK/@13.7835444,100.5420222,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29d1d5906e841:0xaabeb2082937a6ed!8m2!3d13.7835444!4d100.5420222!16s%2Fg%2F11wtlc9xgn?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D" target="_blank">📍 แผนที่ร้าน</a>
+</div>
+      <p>All prices are in THB and subject to 10% service charge and 7% Gov. tax.</p>
+  </div>
+  
+    </div>
+  </section>  
+  <script src="script.js"></script>
+</body>
 </html>
