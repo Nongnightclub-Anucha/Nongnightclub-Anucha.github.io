@@ -6,17 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuDisplay = document.querySelector(".menu-display");
     const menuTitles = document.querySelectorAll(".menu-title");
     const menuItems = document.querySelectorAll(".submenu li");
-  
+
     // ซ่อนส่วนแสดงเมนูอาหาร (menu-display) เมื่อโหลดหน้าแรก
     if (menuDisplay) {
       menuDisplay.style.display = "none";
     }
-  
+
     // เมื่อคลิกปุ่ม "☰ เมนู" ให้สลับแสดง/ซ่อน Sidebar
     toggleBtn.addEventListener("click", function () {
       sidebar.classList.toggle("active");
     });
-  
+
     // เมื่อคลิกปุ่ม "🏠 หน้าแรก" ให้ซ่อน Sidebar และส่วนแสดงเมนูอาหาร
     homeBtn.addEventListener("click", function () {
       sidebar.classList.remove("active");
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         submenu.classList.remove("active");
       });
     });
-  
+
     // เมื่อคลิกที่เมนูหลักใน Sidebar ให้สลับแสดง/ซ่อนเมนูย่อย
     menuTitles.forEach(function (title) {
       title.addEventListener("click", function () {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
-  
+
     // เมื่อคลิกที่รายการใน submenu (เช่น "เมนูตำ", "เมนูยำ", "เมนูต้ม")
     menuItems.forEach(function (item) {
       item.addEventListener("click", function () {
@@ -47,10 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
         loadMenu(menuName);
       });
     });
-  
+
     // ฟังก์ชันโหลดเนื้อหาเมนูตามชื่อที่เลือก
     function loadMenu(menuName) {
       let menuHTML = `<h2>${menuName}</h2><div class="menu-list">`;
+
+      // เพิ่มการสลับการแสดง Sidebar
+      sidebar.classList.toggle("active");
+
       if (menuName === "เมนูตำ") {
         menuHTML += `
           <div class="menu-card">
@@ -109,10 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         `;
       }
+
       menuHTML += `</div>`;
+
       // โหลดเนื้อหาลงในส่วนแสดงเมนูและแสดงออกมา
       menuDisplay.innerHTML = menuHTML;
       menuDisplay.style.display = "block";
     }
   });
-  
