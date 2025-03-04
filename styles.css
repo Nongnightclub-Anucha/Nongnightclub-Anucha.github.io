@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body, html {
   font-family: 'Arial', sans-serif;
   background-color: #121212; /* พื้นหลังดำเข้ม */
@@ -23,24 +24,34 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px); /* ทำให้พื้นหลังดูฟุ้งขึ้น */
 }
+
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
+  flex-wrap: wrap; /* เพิ่ม flex-wrap เพื่อให้ content สามารถยุบลงไปได้เมื่อจอเล็ก */
 }
+
 .header-content h1 {
   font-size: 24px;
   letter-spacing: 1px;
   color: #E0E0E0;
+  flex: 1; /* ให้ h1 ใช้พื้นที่ที่เหลือ */
+  text-align: center; /* จัดตำแหน่งให้ตรงกลาง */
 }
+
 .menu-bar ul {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
 }
+
 .menu-bar li {
   margin-left: 20px;
 }
+
 .menu-bar button {
   background: transparent;
   border: 2px solid #E0E0E0;
@@ -51,6 +62,7 @@ header {
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
 }
+
 .menu-bar button:hover {
   background: #E0E0E0;
   color: #121212;
@@ -66,6 +78,7 @@ header {
   overflow: hidden;
   z-index: -1;
 }
+
 .video-background video {
   width: 100%;
   height: 100%;
@@ -87,22 +100,27 @@ header {
   z-index: 1100;
   backdrop-filter: blur(10px); /* ทำให้พื้นหลังดูฟุ้งขึ้น */
 }
+
 .sidebar.active {
   left: 0;
 }
+
 .sidebar h2 {
   font-size: 22px;
   margin-bottom: 20px;
   border-bottom: 2px solid #333;
   padding-bottom: 10px;
 }
+
 .sidebar .menu {
   list-style: none;
 }
+
 .sidebar .menu li {
   margin-bottom: 15px;
   text-align: left;
 }
+
 .sidebar .menu-title {
   font-weight: bold;
   font-size: 18px;
@@ -111,24 +129,29 @@ header {
   border-bottom: 1px solid #333;
   transition: color 0.3s;
 }
+
 .sidebar .menu-title:hover {
   color: #A8A8A8;
 }
+
 .sidebar .submenu {
   list-style: none;
   padding-left: 20px;
   margin-top: 10px;
   display: none; /* ซ่อน submenu โดยเริ่มต้น */
 }
+
 .sidebar .submenu.active {
   display: block;
 }
+
 .sidebar .submenu li {
   margin-bottom: 8px;
   font-size: 16px;
   cursor: pointer;
   transition: color 0.3s;
 }
+
 .sidebar .submenu li:hover {
   color: #A8A8A8;
 }
@@ -142,6 +165,7 @@ header {
   backdrop-filter: blur(8px);
   border-radius: 10px;
 }
+
 .menu-display h2 {
   margin-bottom: 30px;
   font-size: 28px;
@@ -149,12 +173,14 @@ header {
   letter-spacing: 2px;
   color: #E0E0E0;
 }
+
 .menu-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
 }
+
 .menu-card {
   background: #1E1E1E;
   width: calc(33% - 30px);
@@ -163,27 +189,33 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
+
 .menu-card:hover {
   transform: translateY(-5px);
 }
+
 .menu-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
+
 .menu-info {
   padding: 15px;
   text-align: left;
 }
+
 .menu-info h3 {
   margin-bottom: 10px;
   font-size: 22px;
   color: #E0E0E0;
 }
+
 .menu-info p {
   font-size: 16px;
   margin-bottom: 8px;
 }
+
 .menu-info p strong {
   color: #A8A8A8;
 }
@@ -206,6 +238,7 @@ header {
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
+
 .contact-info h2 {
   font-size: 22px;
   margin-bottom: 15px;
@@ -213,12 +246,14 @@ header {
   letter-spacing: 2px;
   color: #E0E0E0;
 }
+
 .social-links {
   display: flex;
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
 }
+
 .social-links a {
   color: #E0E0E0;
   background: rgba(255, 255, 255, 0.1);
@@ -229,6 +264,7 @@ header {
   font-size: 16px;
   transition: all 0.3s ease-in-out;
 }
+
 .social-links a:hover {
   background: #E0E0E0;
   color: #121212;
@@ -246,37 +282,55 @@ header {
 }
 
 /* Responsive Styles */
-@media (max-width: 992px) {
-  .menu-card {
-    width: calc(50% - 30px);
-  }
-}
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .menu-card {
     width: 100%;
   }
+
   .header-content {
     flex-direction: column;
+    align-items: center; /* จัดตำแหน่งให้กลาง */
+    padding: 15px 20px; /* ปรับ padding ให้พอดีกับหน้าจอเล็ก */
   }
+
+  .header-content h1 {
+    font-size: 20px; /* ลดขนาดตัวอักษรของชื่อร้าน */
+  }
+
   .menu-bar ul {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; /* ให้เมนูเป็นแนวตั้ง */
+    margin-top: 10px;
   }
+
+  .menu-bar li {
+    margin-left: 0;
+    margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+  }
+
+  .menu-bar button {
+    width: 100%; /* ให้ปุ่มกว้างเต็มความกว้างของหน้าจอ */
+    padding: 10px; /* เพิ่ม padding ให้ปุ่มใหญ่ขึ้น */
+  }
+
   .menu-display {
     margin-top: 120px;
     padding: 10px;
   }
+
   .menu-card {
     flex-direction: column; /* ทำให้แต่ละเมนูเรียงกันเป็นแนวตั้ง */
     text-align: center;
   }
+
   .menu-card img {
     width: 100%;
     height: auto;
   }
+
   .menu-info {
     padding: 10px;
   }
+
   h2 {
     font-size: 20px; /* ลดขนาดตัวอักษรหัวข้อ */
   }
