@@ -289,7 +289,7 @@ header {
 
   .header-content {
     flex-direction: column;
-    align-items: center; /* จัดตำแหน่งให้กลาง */
+    align-items: flex-start; /* จัดตำแหน่งให้กลาง */
     padding: 15px 20px; /* ปรับ padding ให้พอดีกับหน้าจอเล็ก */
   }
 
